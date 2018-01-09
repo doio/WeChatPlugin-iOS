@@ -14,6 +14,7 @@ dylib_path="${temp_dir}/${DYLIB##*/}"
 
 framework_path="${app_bundle_path}/${framework_name}.framework"
 rm -rf ${shell_path}/../Products/*
+mkdir ${shell_path}/../Products/
 if [ ! -d ${temp_dir} ]; then
 	# echo "创建 ${temp_dir}"
 	mkdir ${temp_dir}
@@ -46,7 +47,7 @@ app_path="${shell_path}/extracted/Payload/${APPLICATION}"
 # cp -R ${app_path} ./
 
 # rm -rf ~/Desktop/temp/extracted/Payload/$APPLICATION/*Watch*
-
+cp "${shell_path}/popup_close_btn.png" ${app_path}
 cp ${dylib_path} ${libsubstrate_path} ${app_path}
 
 # echo "删除" ${APPLICATION##*/} "中 watch 相关文件"
